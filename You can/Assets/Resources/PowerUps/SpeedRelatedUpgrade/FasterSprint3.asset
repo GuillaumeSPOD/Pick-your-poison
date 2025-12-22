@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716848522767bf8478252fe34a82b55c, type: 3}
+  m_Name: FasterSprint3
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
+  description: "Tu sprint extr\xEAmement vite"
+  quote: "Tu ne peux pas courir de tes probl\xE8mes"
+  effectMethodName: ExtremeSprint
+  requirements:
+  - {fileID: 11400000, guid: acb58308c85c79e4c878c0727186535a, type: 2}
+  incompatibilities:
+  - {fileID: 11400000, guid: 0e0722837e228be4c9d6dece17e647fb, type: 2}
+  weight: 250
+  IsBonus: 1

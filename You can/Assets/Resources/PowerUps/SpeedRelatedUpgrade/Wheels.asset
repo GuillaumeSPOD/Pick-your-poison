@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716848522767bf8478252fe34a82b55c, type: 3}
+  m_Name: Wheels
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
+  description: "Tu as des roues \xE0 la place des jambes"
+  quote: Comment c'est possible ?
+  effectMethodName: Wheels
+  requirements: []
+  incompatibilities:
+  - {fileID: 11400000, guid: 0e0722837e228be4c9d6dece17e647fb, type: 2}
+  - {fileID: 11400000, guid: 8aee35d5caf1c3e41beb07a5b53b51a3, type: 2}
+  - {fileID: 11400000, guid: 457c7015027a24b48bad0e8f6dedf320, type: 2}
+  weight: 100
+  IsBonus: 0

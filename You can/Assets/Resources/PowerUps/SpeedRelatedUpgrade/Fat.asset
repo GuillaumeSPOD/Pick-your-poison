@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716848522767bf8478252fe34a82b55c, type: 3}
+  m_Name: Fat
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
+  description: Tu deviens gros
+  quote: '"Mon ventre stock de l''eau"'
+  effectMethodName: BecomeFat
+  requirements: []
+  incompatibilities:
+  - {fileID: 11400000, guid: 322e309eaa8d5f448bf583ae16a3cf2a, type: 2}
+  - {fileID: 11400000, guid: 811d09bbf85a341458adfb40582148d3, type: 2}
+  - {fileID: 11400000, guid: b40de4b58f8a8444bb5dbef3aefa8844, type: 2}
+  - {fileID: 11400000, guid: cfd44049f3c6000488cc7d5025e8cc8b, type: 2}
+  weight: 125
+  IsBonus: 0

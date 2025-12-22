@@ -1,0 +1,389 @@
+fileFormatVersion: 2
+guid: 4889d65fd45e58842ba840a0a74dfe53
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tete
+    second: {fileID: 2100000, guid: 5d896142e2e9ac84693dc38a11529cb8, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Marche (2)
+      takeName: Armature|Marche
+      internalID: -3880581976594992817
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Course
+      takeName: Armature|Course
+      internalID: 8538211952600432684
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Marche
+      takeName: Armature|Marche
+      internalID: 8475031274125439933
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 8
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Armature
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.008
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.005
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.010
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.006
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.012
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.007
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.002
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.003
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Os.004
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Base_Creature(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Base_Creature(Clone)
+      position: {x: -0, y: 0.5, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 58.66011, y: 58.66011, z: 58.66011}
+    - name: Os
+      parentName: Armature
+      position: {x: -0, y: 0, z: -0.0036035108}
+      rotation: {x: 0.74072444, y: 0.029744826, z: -0.03161855, w: 0.670405}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Os.001
+      parentName: Os
+      position: {x: -6.4319466e-11, y: 0.015220981, z: -4.5401974e-11}
+      rotation: {x: 0.4492246, y: -0.033506583, z: 0.00705, w: 0.89276254}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Os.001_end
+      parentName: Os.001
+      position: {x: -0, y: 0.00658983, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Os.002
+      parentName: Os
+      position: {x: -6.4319466e-11, y: 0.015220981, z: -4.5401974e-11}
+      rotation: {x: 0.29015777, y: -0.020074345, z: 0.8873885, w: -0.35769692}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Os.003
+      parentName: Os.002
+      position: {x: 1.11758706e-10, y: 0.009110403, z: -2.0489097e-10}
+      rotation: {x: 0.0067772944, y: -0.07191544, z: -0.32142198, w: 0.944177}
+      scale: {x: 0.9999998, y: 1, z: 0.9999998}
+    - name: Os.004
+      parentName: Os.003
+      position: {x: -3.352761e-10, y: 0.010404924, z: 1.862645e-10}
+      rotation: {x: -0.104644336, y: -0.049740743, z: -0.16429128, w: 0.9795835}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: Os.004_end
+      parentName: Os.004
+      position: {x: -0, y: 0.0042020385, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Os.005
+      parentName: Os
+      position: {x: -6.4319466e-11, y: 0.015220981, z: -4.5401974e-11}
+      rotation: {x: 0.017570755, y: 0.2128948, z: 0.9152587, w: 0.3415678}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Os.006
+      parentName: Os.005
+      position: {x: 4.2840836e-10, y: 0.00916566, z: -3.72529e-10}
+      rotation: {x: 0.285938, y: 0.0028766796, z: 0.2504937, w: 0.92492384}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: Os.007
+      parentName: Os.006
+      position: {x: -1.6763806e-10, y: 0.009704607, z: 7.45058e-10}
+      rotation: {x: 0.08988574, y: 0.04782578, z: 0.002085469, w: 0.994801}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Os.007_end
+      parentName: Os.007
+      position: {x: -0, y: 0.0046106605, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Os.008
+      parentName: Armature
+      position: {x: -0, y: 0, z: -0.0036035108}
+      rotation: {x: 0.72386897, y: -0.1110635, z: 0.51867324, w: -0.44119915}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Os.010
+      parentName: Os.008
+      position: {x: 5.9604643e-10, y: 0.01178162, z: 2.0489097e-10}
+      rotation: {x: -0.03525402, y: -0.043154128, z: 0.2732371, w: 0.9603314}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: Os.012
+      parentName: Os.010
+      position: {x: -0.0000000010430813, y: 0.012035051, z: 7.4505804e-11}
+      rotation: {x: 0.088787474, y: -0.041957244, z: 0.13939704, w: 0.9853552}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Os.012_end
+      parentName: Os.012
+      position: {x: -0, y: 0.0032409625, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Os.009
+      parentName: Armature
+      position: {x: -0, y: 0, z: -0.0036035108}
+      rotation: {x: -0.44821173, y: -0.20534617, z: 0.29041198, w: 0.82012206}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Os.011
+      parentName: Os.009
+      position: {x: -7.4505804e-11, y: 0.012520988, z: 0}
+      rotation: {x: -0.030707337, y: 0.009833253, z: -0.14262998, w: 0.9892508}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Os.013
+      parentName: Os.011
+      position: {x: -0, y: 0.01171217, z: 0.0000000016391277}
+      rotation: {x: -0.04348256, y: 0.022682276, z: 0.33496585, w: 0.9409531}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Os.013_end
+      parentName: Os.013
+      position: {x: -0, y: 0.003587281, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: imagetostl_mesh0
+      parentName: Base_Creature(Clone)
+      position: {x: -0, y: -1.2299626, z: 0}
+      rotation: {x: 0.000000021855696, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

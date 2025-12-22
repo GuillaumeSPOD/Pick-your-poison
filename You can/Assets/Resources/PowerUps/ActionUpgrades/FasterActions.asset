@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716848522767bf8478252fe34a82b55c, type: 3}
+  m_Name: FasterActions
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
+  description: Tu agis plus rapidement
+  quote: "Comme un ouvrier \xE0 l'usine"
+  effectMethodName: AllActionsFaster
+  requirements: []
+  incompatibilities:
+  - {fileID: 11400000, guid: bf5c596776654244c95a94bd5e4cc44c, type: 2}
+  weight: 100
+  IsBonus: 1
