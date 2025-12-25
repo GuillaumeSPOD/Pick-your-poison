@@ -15,8 +15,8 @@ public class SpawnManagement : MonoBehaviour
 
     void Update()
     {
-        TimeUntilNextMonsterSpawn -= Time.deltaTime;
-        if (TimeUntilNextMonsterSpawn < 0) SpawnMonstre();
+        //TimeUntilNextMonsterSpawn -= Time.deltaTime;
+        //if (TimeUntilNextMonsterSpawn < 0) SpawnMonstre();
     }
 
     void SpawnMonstre()

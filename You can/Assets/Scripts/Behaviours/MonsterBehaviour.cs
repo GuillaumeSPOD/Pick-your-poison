@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.AI; // Nécessaire pour utiliser le NavMeshAgent
+using UnityEngine.AI;
 
 public class MonstreAI : MonoBehaviour
 {
@@ -10,8 +10,8 @@ public class MonstreAI : MonoBehaviour
 
     public Animator animator;
 
-    private GameObject joueur; // Référence au joueur, à assigner dans l'inspecteur
-    private NavMeshAgent agent; // Composant NavMeshAgent du monstre
+    private GameObject joueur;
+    private NavMeshAgent agent;
 
     private bool IsFleeing = false;
     private float FleeTime = 0f;
@@ -23,12 +23,12 @@ public class MonstreAI : MonoBehaviour
 
     private Renderer objectRenderer;
 
-    private Camera targetCamera; // Reference to the camera (child of GameObject B)
+    private Camera targetCamera;
 
     void Start()
     {
 
-        agent = GetComponent<NavMeshAgent>(); // Récupération du NavMeshAgent attaché à l'objet
+        agent = GetComponent<NavMeshAgent>();
         joueur = GameObject.FindWithTag("Player");
 
         animator.SetBool("IsChasing", false);
