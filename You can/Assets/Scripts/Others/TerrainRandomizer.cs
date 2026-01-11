@@ -24,10 +24,11 @@ public class TerrainRandomizer : MonoBehaviour
 
     [Header("Réglages des souterrains")]
     public float HoleMinHeight = 0.4f;
-    public float MinimumHoleDistance = 3f;
 
 
-
+    /// <summary>
+    /// DEMARRAGE
+    /// </summary>
 
     void Start()
     {
@@ -35,11 +36,21 @@ public class TerrainRandomizer : MonoBehaviour
         SetTerrainHeight();
         PokeHolesInTerrain();
 
-        MassPlaceTrees(10000);
-
         NavMeshSurface surface = GetComponent<NavMeshSurface>();
         surface.BuildNavMesh();
     }
+
+
+
+
+    /// <summary>
+    /// UPDATE THE HEIGHTMAP
+    /// </summary>
+
+
+
+
+
 
     public void SetTerrainHeight()
     {
@@ -94,59 +105,208 @@ public class TerrainRandomizer : MonoBehaviour
         }
     }
 
+
+
+
+    /// <summary>
+    /// CAVES GENERATION
+    /// </summary>
+
+
+
+
+
+
+    public class Mountain
+    {
+        public int x_min;
+        public int x_max;
+        public int z_min;
+        public int z_max;
+
+        public Vector2 center;
+
+        public int[,] shape;
+
+        public int size;
+
+        public int numberOfHoles;
+
+        public Mountain(int xMin, int xMax, int zMin, int zMax, int[,] shapeData)
+        {
+            x_min = xMin;
+            x_max = xMax;
+            z_min = zMin;
+            z_max = zMax;
+            shape = shapeData;
+
+            
+
+            CalculateCenter();
+            CalculateSize();
+            SetNumberOfHoles();
+        }
+
+        public void CalculateCenter()
+        {
+            this.center = new Vector2((x_max + x_min) / 2, (z_max + z_min) / 2);
+        }
+
+        private void CalculateSize()
+        {
+            int count = 0;
+
+            int height = shape.GetLength(0);
+            int width = shape.GetLength(1);
+
+            for (int z = 0; z < height; z++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    if (shape[z, x] == 1)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            size = count;
+        }
+
+        private void SetNumberOfHoles()
+        {
+            switch (size)
+            {
+                case > 300:
+                    this.numberOfHoles = 4; break;
+
+                case > 150:
+                    this.numberOfHoles = 3; break;
+
+                case > 50:
+                    this.numberOfHoles = 2; break;
+
+                case > 8:
+                    this.numberOfHoles = 1; break;
+
+                default:
+                    this.numberOfHoles = 0;
+            }
+        }
+    }
+
+    private IEnumerable<Vector2Int> GetNeighbors(Vector2Int p)
+    {
+        yield return new Vector2Int(p.x + 1, p.y);
+        yield return new Vector2Int(p.x - 1, p.y);
+        yield return new Vector2Int(p.x, p.y + 1);
+        yield return new Vector2Int(p.x, p.y - 1);
+    }
+
+    private Mountain FloodFillMountain(int[,] map, bool[,] visited, int startX, int startZ)
+    {
+        int zSize = map.GetLength(0);
+        int xSize = map.GetLength(1);
+
+        Queue<Vector2Int> queue = new Queue<Vector2Int>();
+        List<Vector2Int> cells = new List<Vector2Int>();
+
+        queue.Enqueue(new Vector2Int(startX, startZ));
+        visited[startZ, startX] = true;
+
+        int x_min = startX;
+        int x_max = startX;
+        int z_min = startZ;
+        int z_max = startZ;
+
+        while (queue.Count > 0)
+        {
+            Vector2Int p = queue.Dequeue();
+            cells.Add(p);
+
+            x_min = Mathf.Min(x_min, p.x);
+            x_max = Mathf.Max(x_max, p.x);
+            z_min = Mathf.Min(z_min, p.y);
+            z_max = Mathf.Max(z_max, p.y);
+
+            foreach (Vector2Int n in GetNeighbors(p))
+            {
+                if (n.x < 0 || n.x >= xSize || n.y < 0 || n.y >= zSize)
+                    continue;
+
+                if (!visited[n.y, n.x] && map[n.y, n.x] == 1)
+                {
+                    visited[n.y, n.x] = true;
+                    queue.Enqueue(n);
+                }
+            }
+        }
+
+        // Création de la shape locale
+        int width = x_max - x_min + 1;
+        int height = z_max - z_min + 1;
+        int[,] shape = new int[height, width];
+
+        foreach (Vector2Int c in cells)
+        {
+            shape[c.y - z_min, c.x - x_min] = 1;
+        }
+
+        return new Mountain(x_min, x_max, z_min, z_max, shape);
+    }
+
+
+    public List<Mountain> DetectMountains(int[,] map)
+    {
+        int zSize = map.GetLength(0);
+        int xSize = map.GetLength(1);
+
+        bool[,] visited = new bool[zSize, xSize];
+        List<Mountain> mountains = new List<Mountain>();
+
+        for (int z = 0; z < zSize; z++)
+        {
+            for (int x = 0; x < xSize; x++)
+            {
+                if (map[z, x] == 1 && !visited[z, x])
+                {
+                    Mountain m = FloodFillMountain(map, visited, x, z);
+                    mountains.Add(m);
+                }
+            }
+        }
+
+        return mountains;
+    }
+
     private void PokeHolesInTerrain()
     {
-
+        int numberOfHoles = 0;
 
         bool[,] holes = new bool[res - 1, res - 1];
 
+        int[,] simplifiedHeightMap = new int[(res - 1) / blocksize, (res - 1) / blocksize];  //heightMap comportant les hauteurs de chaque "bloc"
+
 
         InitHoles(holes);
-        List<Vector3> possible_Holes = GetPossibleHoles();
-        RemoveInnerHoles(possible_Holes);
 
-        possible_Holes = RemovePercentageOfElements(possible_Holes, 20);
+        InitHeightMap(simplifiedHeightMap);
 
-        possible_Holes = RemoveCloseElements(possible_Holes);
+        List<Mountain> mountains = new List<Mountain>();
 
+        mountains = DetectMountains(simplifiedHeightMap);
 
+        //DEBUG
 
+        Texture2D tex = MapToTexture(simplifiedHeightMap);
+        ShowTexture(tex);
 
-        int numberOfHoles = 0;
+        DebugMountains(mountains);
 
-        int chunk_x;
-        int chunk_z;
-        int offset = (blocksize / 2) - 1 ;
-
-        foreach (Vector3 hole in possible_Holes)
-        {
-            chunk_x = (int)hole.x;
-            chunk_z = (int)hole.z;
-
-            if (CanBeHole(chunk_x * blocksize, chunk_z * blocksize)) 
-            {
-
-                holes[chunk_z * blocksize + offset, (chunk_x * blocksize) - 1] = false;
-                holes[(chunk_z * blocksize) - 1, chunk_x * blocksize + offset] = false;
-                numberOfHoles++;
-
-            }
-
-        }
+        //Seems to work just fine
 
         Debug.Log($"Nombre de trous: {numberOfHoles}");
-
         terrainData.SetHoles(0, 0, holes);
-    }
-
-    private bool CanBeHole(int x, int z)
-    {
-        if (z <= blocksize + 1 || x <= blocksize + 1) return false;
-
-        float slope = Mathf.Abs(heights[z, x] - heights[z - 1, x]) + Mathf.Abs(heights[z, x] - heights[z, x - 1]);
-
-        if (slope < 0.02f) return false;
-        return true;
     }
 
     private void MassPlaceTrees(int numberOfTrees)
@@ -181,26 +341,21 @@ public class TerrainRandomizer : MonoBehaviour
     {
         for (int z = 0; z < res - 1; z++)
             for (int x = 0; x < res - 1; x++)
+
                 holes[z, x] = true;
     }
 
-    private List<Vector3> GetPossibleHoles()
+    private void InitHeightMap(int[,] heightInit)
     {
-        List<Vector3> possible_Holes = new List<Vector3>();
+        int zSize = heightInit.GetLength(0);
+        int xSize = heightInit.GetLength(1);
 
-        for (int chunk_x = 0; chunk_x < block_number_in_lane; chunk_x++)
-        {
-            for (int chunk_z = 0; chunk_z < block_number_in_lane; chunk_z++)
-            {
-                float height = heights[chunk_z * blocksize + 1, chunk_x * blocksize + 1];
-
-                if (height > HoleMinHeight)
-                    possible_Holes.Add(new Vector3(chunk_x, 0, chunk_z));
-            }
-        }
-
-        return possible_Holes;
+        for (int z = 0; z < zSize; z++)
+            for (int x = 0; x < xSize; x++)
+                if (heights[1 + z * blocksize, 1 + x * blocksize] > HoleMinHeight)
+                    heightInit[z, x] = 1;
     }
+
 
     private void RemoveInnerHoles(List<Vector3> possible_Holes)
     {
@@ -221,41 +376,58 @@ public class TerrainRandomizer : MonoBehaviour
         }
     }
 
-    private List<Vector3> RemovePercentageOfElements(List<Vector3> list, int percentage)
+
+
+
+    private void DebugMountains(List<Mountain> mountains)
     {
-        int removeCount = list.Count * percentage / 100;
+        Debug.Log($"Nombre de montagnes détectées : {mountains.Count}");
 
-        for (int i = 0; i < removeCount; i++)
+        for (int i = 0; i < mountains.Count; i++)
         {
-            int index = rnd.Next(list.Count);
-            list.RemoveAt(index);
-        }
+            Mountain m = mountains[i];
 
-        return list;
+            Debug.Log(
+                $"Montagne {i} | " +
+                $"Size: {m.size} | " +
+                $"x_min: {m.x_min}, x_max: {m.x_max} | " +
+                $"z_min: {m.z_min}, z_max: {m.z_max} | " +
+                $"Center: ({m.center.x:F2}, {m.center.y:F2})"
+            );
+        }
     }
 
 
-    private List<Vector3> RemoveCloseElements(List<Vector3> list)
+    public Texture2D MapToTexture(int[,] map)
     {
-        List<Vector3> result = new List<Vector3>(list);
+        int height = map.GetLength(0);
+        int width = map.GetLength(1);
 
-        for (int i = result.Count - 1; i >= 0; i--)
+        Texture2D tex = new Texture2D(width, height);
+        tex.filterMode = FilterMode.Point;
+
+        for (int z = 0; z < height; z++)
         {
-            for (int j = 0; j < i; j++)
+            for (int x = 0; x < width; x++)
             {
-                if (Distance(result[i].x, result[i].z, result[j].x, result[j].z) <= MinimumHoleDistance)
-                {
-                    result.RemoveAt(i);
-                    break;
-                }
+                Color c = map[z, x] == 1 ? Color.white : Color.black;
+                tex.SetPixel(x, z, c);
             }
         }
 
-        return result;
+        tex.Apply();
+        return tex;
     }
 
-    private float Distance(float  x1, float z1, float x2, float z2)
+    public void ShowTexture(Texture2D tex)
     {
-        return Mathf.Abs(x1 - x2) + Mathf.Abs(z1 - z2);
+        GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        quad.transform.position = new Vector3(0, 10, 0);
+        quad.transform.localScale = new Vector3(tex.width / 10f, tex.height / 10f, 1);
+
+        Material mat = new Material(Shader.Find("Unlit/Texture"));
+        mat.mainTexture = tex;
+
+        quad.GetComponent<MeshRenderer>().material = mat;
     }
 }

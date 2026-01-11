@@ -548,8 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainRandomizer
   blocksize: 6
-  HoleMinHeight: 0.4
-  MinimumHoleDistance: 5
+  HoleMinHeight: 0.45
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
